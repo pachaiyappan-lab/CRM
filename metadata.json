@@ -1,0 +1,6 @@
+{
+  "name": "NexusCRM - AI-Powered CRM & Business OS",
+  "description": "All-in-one AI CRM for freelancers and small teams managing leads, deals, proposals, invoices, projects, and communications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,124 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Prospective client record in CRM pipeline",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "companyName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "status": { "type": "string" },
+        "source": { "type": "string" },
+        "estimatedValue": { "type": "number" },
+        "tags": { "type": "array" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "companyName", "status"]
+    },
+    "Deal": {
+      "title": "Deal",
+      "description": "Sales pipeline deal",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "value": { "type": "number" },
+        "stage": { "type": "string" },
+        "probability": { "type": "number" },
+        "leadId": { "type": "string" },
+        "companyName": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "value", "stage"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "Operational and follow-up task",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "status": { "type": "string" },
+        "priority": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["title", "status", "priority"]
+    },
+    "Invoice": {
+      "title": "Invoice",
+      "description": "Billing and client invoices",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "number": { "type": "string" },
+        "companyName": { "type": "string" },
+        "contactEmail": { "type": "string" },
+        "status": { "type": "string" },
+        "total": { "type": "number" },
+        "amountPaid": { "type": "number" },
+        "dueDate": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["number", "companyName", "status", "total"]
+    },
+    "Workspace": {
+      "title": "Workspace",
+      "description": "Store and company settings",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "currency": { "type": "string" },
+        "currencyCode": { "type": "string" },
+        "taxRate": { "type": "number" }
+      },
+      "required": ["name", "currency"]
+    },
+    "User": {
+      "title": "User",
+      "description": "User profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "title": { "type": "string" }
+      },
+      "required": ["name", "email"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Collection of CRM leads"
+    },
+    "/deals/{dealId}": {
+      "schema": "Deal",
+      "description": "Collection of sales pipeline deals"
+    },
+    "/tasks/{taskId}": {
+      "schema": "Task",
+      "description": "Collection of tasks"
+    },
+    "/invoices/{invoiceId}": {
+      "schema": "Invoice",
+      "description": "Collection of billing statements and invoices"
+    },
+    "/workspaces/{workspaceId}": {
+      "schema": "Workspace",
+      "description": "Workspace configuration"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    }
+  }
+}
